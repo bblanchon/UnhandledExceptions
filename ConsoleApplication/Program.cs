@@ -1,8 +1,6 @@
-/*
- * This file is part of the Satimo Software Framework
- *
- * Copyright © Satimo 2013 All Rights Reserved, http://satimo.fr/
- */
+// Copyright © Benoit Blanchon 2013
+// http://benoitblanchon.fr/
+// MIT License
 namespace UnhandledExceptions.ConsoleApplication
 {
     using System;
