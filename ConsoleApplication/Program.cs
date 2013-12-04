@@ -1,6 +1,7 @@
 // Copyright © Benoit Blanchon 2013
 // http://benoitblanchon.fr/
 // MIT License
+
 namespace UnhandledExceptions.ConsoleApplication
 {
     using System;
@@ -17,12 +18,13 @@ namespace UnhandledExceptions.ConsoleApplication
 
         static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-#if !DEBUG
+            if (System.Diagnostics.Debugger.IsAttached) return;
+            
             Console.WriteLine(e.ExceptionObject.ToString());
             Console.WriteLine("-- Press [Enter] to close --");
             Console.ReadLine();
+
             Environment.Exit(1);
-#endif
         }
     }
 }

@@ -1,6 +1,7 @@
 // Copyright © Benoit Blanchon 2013
 // http://benoitblanchon.fr/
 // MIT License
+
 namespace UnhandledExceptions.WindowsFormsApplication
 {
     using System;
@@ -22,10 +23,10 @@ namespace UnhandledExceptions.WindowsFormsApplication
 
         static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-#if !DEBUG
+            if (System.Diagnostics.Debugger.IsAttached) return;
+
             MessageBox.Show(e.ExceptionObject.ToString());
             Environment.Exit(1);
-#endif
         }
     }
 }
